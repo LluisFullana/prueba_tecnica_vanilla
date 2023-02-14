@@ -1,21 +1,9 @@
-import { CustomElement, ItemState, ModalState } from "./types";
+import { getElementById, getElementsByClassName } from "./Helpers/helpers";
+import { Item } from "./Item/item";
+import { ItemState, ModalState } from "./types";
 
 let itemId = 10;
 let states: NodeListOf<HTMLDivElement>[] = [];
-
-const Item = (id: string, content: string | null) => {
-  return /*html*/ `<div id=${id} class='${ItemState.UNSELECTED}'>${content}</div>`;
-};
-
-const getElementById = (id: string): CustomElement => {
-  return document.querySelector<CustomElement>(`#${id}`)!;
-};
-
-const getElementsByClassName = (
-  classNames: string
-): NodeListOf<CustomElement> => {
-  return document.querySelectorAll<CustomElement>(classNames)!;
-};
 
 const setState = (state: NodeListOf<HTMLDivElement>) => {
   states.push(state);
