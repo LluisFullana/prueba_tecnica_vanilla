@@ -1,12 +1,14 @@
 import { Button } from "./Button/button";
+import { ReturnIcon } from "./Icons/returnIcon";
+import { Item } from "./Item/item";
+import { ButtonTypes } from "./types";
 import {
   setButtonsListeners,
   setDefaultItemsListeners,
 } from "./Helpers/helpers";
-import { ReturnIcon } from "./Icons/returnIcon";
-import { Item } from "./Item/item";
 import "./style.css";
-import { ButtonTypes } from "./types";
+import "./Button/styles.css";
+import "./Item/styles.css";
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML =
   /*html*/

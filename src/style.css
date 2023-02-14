@@ -23,66 +23,6 @@ body {
   text-align: center;
 }
 
-button {
-  border-radius: 100px 100px 100px 100px;
-  height: 49px;
-  border: 1px solid transparent;
-  font-size: 1em;
-  font-weight: 600;
-  font-family: inherit;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:focus {
-  outline: 0;
-}
-
-.buttonsRow {
-  width: 100%;
-  height: fit-content;
-  display: flex;
-  gap: 15px;
-}
-
-.openModalButton {
-  width: 138px;
-  background-color: var(--mainColor);
-  margin-left: auto;
-}
-
-.deleteButton {
-  width: 138px;
-  background-color: #ffffff;
-  color: var(--mainColor);
-  border: 1px solid var(--mainColor);
-  margin-right: auto;
-}
-
-.returnButton {
-  width: 81px;
-  background-color: #ffffff;
-  color: var(--mainColor);
-  border: 1px solid var(--mainColor);
-}
-
-.returnIcon {
-  display: flex;
-  align-items: center;
-}
-
-.cancelButton {
-  width: 138px;
-  background-color: #ffffff;
-  color: var(--mainColor);
-  border: 1px solid var(--mainColor);
-}
-
-.addButton {
-  width: 138px;
-  background-color: var(--mainColor);
-  margin-left: auto;
-}
-
 .selector {
   width: 900px;
   height: fit-content;
@@ -116,35 +56,6 @@ button:focus {
   margin: 35px auto;
   box-sizing: border-box;
   padding: 11px;
-}
-
-.item {
-  width: 100%;
-  height: 40px;
-  font-size: 18px;
-  text-align: left;
-  justify-content: center;
-  line-height: 40px;
-  box-sizing: border-box;
-  padding-left: 15px;
-  cursor: pointer;
-}
-
-.selectedItem {
-  width: 100%;
-  height: 40px;
-  font-size: 18px;
-  text-align: left;
-  justify-content: center;
-  line-height: 40px;
-  box-sizing: border-box;
-  padding-left: 15px;
-  background-color: var(--mainColor);
-  color: #ffffff;
-}
-
-.item:hover {
-  border: 1px solid var(--mainColor);
 }
 
 #modal {
