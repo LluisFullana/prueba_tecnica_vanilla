@@ -14,12 +14,18 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML =
   /*html*/
   `
 <div id='modal' class=''>
-  <div class='label'>Add item to list</div>
-  <input id='textInputId' class='textInput' type="text" placeholder='Type the text here...' value=''/>
-  <div class='buttonsRow'>
-    ${Button({ buttonType: ButtonTypes.ADD, content: "ADD" })}
-    ${Button({ buttonType: ButtonTypes.CLOSEMODAL, content: "CANCEL" })}
-  </div>
+  <form>
+    <label for="textInputId" class='label'>Add item to list</label>
+    <input id='textInputId' class='textInput' type="text" placeholder='Type the text here...' required minlength="1">
+    <div class='buttonsRow'>
+      ${Button({ buttonType: ButtonTypes.ADD, content: "ADD" })}
+      ${Button({
+        buttonType: ButtonTypes.CLOSEMODAL,
+        content: "CANCEL",
+        submitType: "button",
+      })}
+    </div>
+  </form>
 </div>
 
 <div id='shadowId' class=''></div>

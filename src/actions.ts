@@ -12,6 +12,7 @@ const setState = (state: NodeListOf<HTMLDivElement>) => {
 export const showModal = () => {
   getElementById("modal").classList.add(ModalState.OPENED);
   getElementById("shadowId").classList.add(ModalState.OPENED);
+  // getElementById("textInputId").focus();
 };
 
 export const closeModal = () => {
@@ -20,16 +21,18 @@ export const closeModal = () => {
 };
 
 export const addItem = (value: string) => {
-  setState(
-    getElementsByClassName(
-      `.${ItemState.SELECTED}, .${ItemState.UNSELECTED}`
-    ) as NodeListOf<HTMLDivElement>
-  );
-  let id = "Item" + itemId++;
-  getElementById("itemList").insertAdjacentHTML("beforeend", Item(id, value));
-  getElementById(id).addEventListener("click", () => selectItem(id));
-  (getElementById("textInputId") as HTMLInputElement).value = "";
-  closeModal();
+  if (value.trim() !== "") {
+    setState(
+      getElementsByClassName(
+        `.${ItemState.SELECTED}, .${ItemState.UNSELECTED}`
+      ) as NodeListOf<HTMLDivElement>
+    );
+    let id = "Item" + itemId++;
+    getElementById("itemList").insertAdjacentHTML("beforeend", Item(id, value));
+    getElementById(id).addEventListener("click", () => selectItem(id));
+    (getElementById("textInputId") as HTMLInputElement).value = "";
+    closeModal();
+  }
 };
 
 export const selectItem = (id: string) => {
@@ -43,6 +46,9 @@ export const deleteItems = (selectedItems: NodeListOf<HTMLDivElement>) => {
     ) as NodeListOf<HTMLDivElement>
   );
   selectedItems.forEach((item) => {
+    getElementById(item.id).removeEventListener("click", () =>
+      selectItem(item.id)
+    );
     getElementById(item.id).remove();
   });
 };

@@ -38,6 +38,7 @@ export const setButtonsListeners = () => {
   getElementById(ButtonTypes.RETURN).addEventListener("click", () =>
     returnToLastState()
   );
+  getElementById("shadowId").addEventListener("click", () => closeModal());
 };
 
 export const setDefaultItemsListeners = () => {
