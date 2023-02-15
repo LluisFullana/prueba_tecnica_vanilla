@@ -2,10 +2,7 @@ import { Button } from "./Button/button";
 import { ReturnIcon } from "./Icons/returnIcon";
 import { Item } from "./Item/item";
 import { ButtonAction } from "./types";
-import {
-  setButtonsListeners,
-  setDefaultItemsListeners,
-} from "./Helpers/helpers";
+import { setSelectorListeners, setModalListeners } from "./Helpers/helpers";
 import "./style.css";
 import "./Button/styles.css";
 import "./Item/styles.css";
@@ -47,5 +44,5 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML =
 </div>
 `;
 
-setButtonsListeners();
-setDefaultItemsListeners();
+setSelectorListeners();
+setModalListeners();

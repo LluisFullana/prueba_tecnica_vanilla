@@ -18,15 +18,9 @@ export const getElementsByClassName = (
   return document.querySelectorAll<CustomElement>(classNames)!;
 };
 
-export const setButtonsListeners = () => {
+export const setSelectorListeners = () => {
   getElementById(ButtonAction.OPENMODAL).addEventListener("click", () =>
     showModal()
-  );
-  getElementById(ButtonAction.CLOSEMODAL).addEventListener("click", () =>
-    closeModal()
-  );
-  getElementById(ButtonAction.ADD).addEventListener("click", () =>
-    addItem((getElementById("textInputId") as HTMLInputElement).value)
   );
   getElementById(ButtonAction.DELETE).addEventListener("click", () =>
     deleteItems(
@@ -38,15 +32,21 @@ export const setButtonsListeners = () => {
   getElementById(ButtonAction.RETURN).addEventListener("click", () =>
     returnToLastState()
   );
-  getElementById("shadowId").addEventListener("click", () => closeModal());
-  getElementById("form").addEventListener("submit", (event: Event) => {
-    event.preventDefault();
-  });
-};
-
-export const setDefaultItemsListeners = () => {
   getElementById("Item0").addEventListener("click", () => selectItem("Item0"));
   getElementById("Item1").addEventListener("click", () => selectItem("Item1"));
   getElementById("Item2").addEventListener("click", () => selectItem("Item2"));
   getElementById("Item3").addEventListener("click", () => selectItem("Item3"));
+};
+
+export const setModalListeners = () => {
+  getElementById(ButtonAction.CLOSEMODAL).addEventListener("click", () =>
+    closeModal()
+  );
+  getElementById(ButtonAction.ADD).addEventListener("click", () =>
+    addItem((getElementById("textInputId") as HTMLInputElement).value)
+  );
+  getElementById("form").addEventListener("submit", (event: Event) => {
+    event.preventDefault();
+  });
+  getElementById("shadowId").addEventListener("click", () => closeModal());
 };
