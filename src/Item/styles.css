@@ -23,6 +23,10 @@
   color: #ffffff;
 }
 
+.item.selectedItem:hover {
+  color: #ffffff;
+}
 .item:hover {
   border: 1px solid var(--mainColor);
+  color: var(--mainColor);
 }
