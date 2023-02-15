@@ -1,7 +1,7 @@
-import { ButtonTypes } from "../types";
+import { ButtonAction } from "../types";
 
 export interface IButtonProps {
-  buttonType: ButtonTypes;
+  action: ButtonAction;
   content: string;
-  submitType?: "submit" | "button" | "reset" | undefined;
+  type?: string;
 }

@@ -12,7 +12,7 @@ const setState = (state: NodeListOf<HTMLDivElement>) => {
 export const showModal = () => {
   getElementById("modal").classList.add(ModalState.OPENED);
   getElementById("shadowId").classList.add(ModalState.OPENED);
-  // getElementById("textInputId").focus();
+  (getElementById("textInputId") as HTMLInputElement).value = "";
 };
 
 export const closeModal = () => {
@@ -22,6 +22,7 @@ export const closeModal = () => {
 
 export const addItem = (value: string) => {
   if (value.trim() !== "") {
+    console.log("Item añadido: ", value);
     setState(
       getElementsByClassName(
         `.${ItemState.SELECTED}, .${ItemState.UNSELECTED}`
@@ -30,8 +31,9 @@ export const addItem = (value: string) => {
     let id = "Item" + itemId++;
     getElementById("itemList").insertAdjacentHTML("beforeend", Item(id, value));
     getElementById(id).addEventListener("click", () => selectItem(id));
-    (getElementById("textInputId") as HTMLInputElement).value = "";
     closeModal();
+  } else {
+    (getElementById("textInputId") as HTMLInputElement).value = "";
   }
 };
 

@@ -3,7 +3,7 @@ export enum ModalState {
   CLOSED = "",
 }
 
-export enum ButtonTypes {
+export enum ButtonAction {
   ADD = "addButton",
   DELETE = "deleteButton",
   RETURN = "returnButton",

@@ -82,7 +82,7 @@ body {
   transform: translateY(50%);
 }
 
-.label {
+form {
   height: fit-content;
   width: 100%;
   text-align: left;

@@ -1,9 +1,5 @@
 import { IButtonProps } from "./types";
 
-export const Button = ({
-  buttonType,
-  content,
-  submitType = "submit",
-}: IButtonProps) => {
-  return /*html*/ `<button type=${submitType} id='${buttonType}' class='${buttonType}'> ${content} </button>`;
+export const Button = ({ action, content, type = "button" }: IButtonProps) => {
+  return /*html*/ `<button type=${type} id='${action}' class='${action}'> ${content} </button>`;
 };

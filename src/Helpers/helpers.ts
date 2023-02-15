@@ -6,7 +6,7 @@ import {
   selectItem,
   showModal,
 } from "../actions";
-import { ButtonTypes, CustomElement, ItemState } from "../types";
+import { ButtonAction, CustomElement, ItemState } from "../types";
 
 export const getElementById = (id: string): CustomElement => {
   return document.querySelector<CustomElement>(`#${id}`)!;
@@ -19,26 +19,29 @@ export const getElementsByClassName = (
 };
 
 export const setButtonsListeners = () => {
-  getElementById(ButtonTypes.OPENMODAL).addEventListener("click", () =>
+  getElementById(ButtonAction.OPENMODAL).addEventListener("click", () =>
     showModal()
   );
-  getElementById(ButtonTypes.CLOSEMODAL).addEventListener("click", () =>
+  getElementById(ButtonAction.CLOSEMODAL).addEventListener("click", () =>
     closeModal()
   );
-  getElementById(ButtonTypes.ADD).addEventListener("click", () =>
+  getElementById(ButtonAction.ADD).addEventListener("click", () =>
     addItem((getElementById("textInputId") as HTMLInputElement).value)
   );
-  getElementById(ButtonTypes.DELETE).addEventListener("click", () =>
+  getElementById(ButtonAction.DELETE).addEventListener("click", () =>
     deleteItems(
       getElementsByClassName(
         `.${ItemState.SELECTED}`
       ) as NodeListOf<HTMLDivElement>
     )
   );
-  getElementById(ButtonTypes.RETURN).addEventListener("click", () =>
+  getElementById(ButtonAction.RETURN).addEventListener("click", () =>
     returnToLastState()
   );
   getElementById("shadowId").addEventListener("click", () => closeModal());
+  getElementById("form").addEventListener("submit", (event: Event) => {
+    event.preventDefault();
+  });
 };
 
 export const setDefaultItemsListeners = () => {

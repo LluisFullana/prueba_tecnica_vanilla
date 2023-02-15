@@ -1,7 +1,7 @@
 import { Button } from "./Button/button";
 import { ReturnIcon } from "./Icons/returnIcon";
 import { Item } from "./Item/item";
-import { ButtonTypes } from "./types";
+import { ButtonAction } from "./types";
 import {
   setButtonsListeners,
   setDefaultItemsListeners,
@@ -14,16 +14,12 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML =
   /*html*/
   `
 <div id='modal' class=''>
-  <form>
+  <form id="form">
     <label for="textInputId" class='label'>Add item to list</label>
-    <input id='textInputId' class='textInput' type="text" placeholder='Type the text here...' required minlength="1">
+    <input id='textInputId' class='textInput' type="text" placeholder='Type the text here...' required minlength="1" autocomplete="off">
     <div class='buttonsRow'>
-      ${Button({ buttonType: ButtonTypes.ADD, content: "ADD" })}
-      ${Button({
-        buttonType: ButtonTypes.CLOSEMODAL,
-        content: "CANCEL",
-        submitType: "button",
-      })}
+      ${Button({ action: ButtonAction.ADD, content: "ADD", type: "submit" })}
+      ${Button({ action: ButtonAction.CLOSEMODAL, content: "CANCEL" })}
     </div>
   </form>
 </div>
@@ -44,9 +40,9 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML =
     ${Item("Item3", "Item 4")}
   </div>
   <div class='buttonsRow'>
-    ${Button({ buttonType: ButtonTypes.RETURN, content: ReturnIcon() })}
-    ${Button({ buttonType: ButtonTypes.DELETE, content: "DELETE" })}
-    ${Button({ buttonType: ButtonTypes.OPENMODAL, content: "ADD" })}
+    ${Button({ action: ButtonAction.RETURN, content: ReturnIcon() })}
+    ${Button({ action: ButtonAction.DELETE, content: "DELETE" })}
+    ${Button({ action: ButtonAction.OPENMODAL, content: "ADD" })}
   </div>
 </div>
 `;
